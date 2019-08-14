@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row my-4">
+        <div class="col-4">
+            <img [src]="event.imageUrl" class="img-fluid" />
+        </div>
+        <div class="col-8">
+            <h2>{{event.name}}</h2>
+            <div class="row">
+                <div class="col-3">
+                    <p>
+                        <small>
+                            {{event.startDate | date:'MMM d'}} - {{event.endDate | date:'MMM d'}}
+                        </small>
+                    </p>
+                    <p>
+                        <small class="text-muted">
+                            {{event.time}}
+                        </small>
+                    </p>
+                </div>
+                <div class="col-3">
+                    <!--
+                    <span *ngIf="event.modes.online">Online</span>
+                    <span *ngIf="event.modes.inPerson">In Person</span>
+                    -->
+                    <div [ngSwitch]="event.modes.online">
+                        <span *ngSwitchCase="true">
+                            <i class="fa fa-check"></i>
+                        </span>
+                        <span *ngSwitchCase="false">
+                            <i class="fa fa-times"></i>
+                        </span>
+                        Online
+                    </div>
+                    <div [ngSwitch]="event.modes.inPerson">
+                        <span *ngSwitchCase="true">
+                            <i class="fa fa-check"></i>
+                        </span>
+                        <span *ngSwitchCase="false">
+                            <i class="fa fa-times"></i>
+                        </span>
+                        In person
+                    </div>
+                </div>
+            </div>
+            <p [innerHTML]="event.description | ellipsize:200"></p>
+        </div>
+    </div>
+</div>

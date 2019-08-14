@@ -1,0 +1,28 @@
+<!--
+    Data-binding
+    1. {{variable}} - The variable must be a public data member
+        {{some javascript expression}}
+            Example: {{someMethod()}}
+    2. [attribute]="variable" - used for HTML element attributes
+-->
+<div class="container">
+    <div class="row">
+        <div class="col-4 d-flex" *ngFor="let event of events">
+            <!-- routerLink="/events/{{event.id}}" -->
+            <div class="card w-100 my-3" [routerLink]="[ 'events', event.id ]">
+                <img class="card-img-top w-75 d-block mx-auto" [src]="event.imageUrl" alt=""> <!-- src="{{event.imageUrl}}" -->
+                <div class="card-body">
+                    <h4 class="card-title">{{event.name}}</h4>
+                    <div class="card-text">`˝
+                        <div>
+                            <span>{{event.startDate | date}}</span> - <span>{{event.endDate | date}}</span>
+                        </div>
+                        <div>
+                            <span>{{event.time}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
