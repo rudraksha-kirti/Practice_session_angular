@@ -1,0 +1,60 @@
+<div class="row my-4">
+        <div class="col-12">
+            <h3>
+                Session of this workshop
+                <div class="float-right">
+                    <button class="btn btn-sm btn-primary" routerLink="add">
+                        Add new session
+                    </button>
+                    &nbsp;&nbsp;
+                    <button class="btn btn-sm btn-primary" (click)="areSessionsVisible = !areSessionsVisible">
+                        {{areSessionsVisible ? 'Hide sessions' : 'Show sessions'}}
+                    </button>
+                </div>
+            </h3>
+            <hr />
+            <form *ngIf="areSessionsVisible">
+                <div class="form-group">
+                    <label for="searchbox">Type to search here</label>
+                    <!-- When we set ngModel directive, Angular creates a data structure (an object) with input element details, including its input value -->
+                    <input type="search" name="searchbox" id="searchbox" class="form-control" placeholder="Enter terms to search for" aria-describedby="helpId" [(ngModel)]="searchKey" (ngModelChange)="filterSessions()">
+                    <small id="helpId" class="text-muted">Search for: {{searchKey}}</small>
+                </div>
+            </form>
+        </div>
+        <div class="col-12" *ngIf="areSessionsVisible">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let session of filteredSessions; let i = index;">
+                    <div class="row">
+                        <div class="col-1">
+                            <app-voting-widget [votes]="session.upvoteCount" (upvoted)="upvote( session, i, $event )"
+                                (downvoted)="downvote( session, i, $event )">
+                            </app-voting-widget>
+                        </div>
+                        <div class="col-11">
+                                <app-panel [heading]="session.name">
+                                        <div class="h5">{{session.speaker}}</div>
+                                        <div>
+                                            <small class="text-muted">{{session.duration}}</small> hrs
+                                        </div>
+                                        <p>
+                                            {{session.abstract}}
+                                        </p>
+                                        <div class="footer">Level: {{session.level}}</div>
+                                    </app-panel>
+                                    <!-- <class="lead">{{session.name}}</div> -->
+                                    
+                            <!-- <div class="lead">{{session.name}}</div>
+                            <div class="h5">{{session.speaker}}</div>
+                            <div>
+                                <small class="text-muted">{{session.duration}}</small> hrs
+                            </div>
+                            <p>
+                                {{session.abstract}}
+                            </p> -->
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>

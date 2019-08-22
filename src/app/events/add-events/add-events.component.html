@@ -1,0 +1,36 @@
+<h3>
+    Details of the New Seesion
+    <div class="float-right">
+            <button class="btn btn-danger" [routerLink]="[ '/events']">Cancel</button>
+        </div>
+</h3>
+<form (ngSubmit)="addEvent( $event, addEventsForm.value )" novalidate #addEventsForm="ngForm"> <!-- ngForm directive is automatically added by added -->
+    <div class="form-group row">
+        <label for="name" class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" name="name" id="name" placeholder=""
+                [(ngModel)]="events.name" aria-describedby="nameHelpId" #name="ngModel" required 
+                (click)="displayErrors(name)">
+            <small id="nameHelpId" class="text-muted" *ngIf="name.untouched || name.valid">
+                Event Name (Technology Name )</small>
+            <small class="has-error" *ngIf="name.errors?.required">
+ Details of the events 
+            </small>
+           
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="description" class="col-sm-3 col-form-label">Description</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" name="description" id="description" placeholder=""
+                [(ngModel)]="events.description" aria-describedby="descriptionHelpId" required>
+            <small id="descriptionHelpId" class="text-muted">The title of the session</small>
+        </div>
+    </div>
+  
+    <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+            <button type="submit" class="btn btn-primary">Add Event</button>
+        </div>
+    </div>
+</form>

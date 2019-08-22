@@ -1,0 +1,11 @@
+<!-- Similarly you can use ngStyle to apply CSS styles conditionally -->
+<div class="app-panel">
+        <div class="app-panel-heading" (click)="togglePanel()">{{heading}}</div>
+        <div class="app-panel-body" [ngClass]="{ 'app-panel-open': isOpen, 'app-panel-closed' : !isOpen }">
+            <ng-content></ng-content>
+        </div>
+        <div class="app-panel-footer">
+            <ng-content select=".footer"></ng-content>
+        </div>
+    </div>
+    

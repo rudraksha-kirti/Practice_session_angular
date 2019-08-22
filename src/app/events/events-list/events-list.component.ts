@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import data from '../events';
-import {EventsService} from '../events.service'
+import { EventsService } from '../events.service';
+import IEvent from '../IEvent';
+
 @Component(
     {
         selector: 'app-events-list',
@@ -10,25 +11,23 @@ import {EventsService} from '../events.service'
         ]
     }
 )
-export class EventsListComponent  implements OnInit{
-   // public eventName = 'Angular JS Workshop';
-    public events;
+export class EventsListComponent implements OnInit {
+    public events : IEvent[];
     public errorFetchingEvents;
-    public event = this.events[0];
-    constructor(private _eventsService : EventsService){
 
-    }
-    ngOnInit(){
-this._eventsService.getEvents().subscribe(
-    (data) => {
-this.events = data;
-    },
-    (error) => {
-this.errorFetchingEvents = error
-    },
-    // () =>{
+    constructor( private _eventsService : EventsService ) {}
 
-    // }
-)
+    ngOnInit() {
+        this._eventsService.getEvents().subscribe(
+            ( data : IEvent[] ) => { // ajax call has succeeded
+                this.events = data;
+            },
+            ( error ) => { // ajax call fails or server responds with error code
+                this.errorFetchingEvents = error;
+            }/*,
+            () => { // gets called immediately Ajax call results in success/error (in a general observable it gets called after observable completes)
+
+            }*/
+        );
     }
 }

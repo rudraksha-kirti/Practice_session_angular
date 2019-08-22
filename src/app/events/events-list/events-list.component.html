@@ -5,11 +5,36 @@
             Example: {{someMethod()}}
     2. [attribute]="variable" - used for HTML element attributes
 -->
-<div class="container">
-    <div class="row">
+<div class="container my-4">
+        <h3>
+                Events of this workshop
+                <div class="float-right">
+                    <button class="btn btn-sm btn-primary" routerLink="addEvents">
+                        Add new event
+                    </button>
+                    &nbsp;&nbsp;
+                    <button class="btn btn-sm btn-primary" (click)="areEventsVisible = !areEventsVisible">
+                        {{areEventsVisible ? 'Hide Events' : 'Show Events'}}
+                    </button>
+                </div>
+            </h3>
+            <hr />
+    <div *ngIf="!errorFetchingEvents && (!events || events.length === 0)">
+        <div class="alert alert-primary" role="alert">
+            <strong>We are fetching events. Hang on...</strong>
+        </div>
+    </div>
+    <div *ngIf="errorFetchingEvents">
+        <div class="alert alert-danger" role="alert">
+            <strong>{{errorFetchingEvents.message}}</strong>
+        </div>
+    </div>
+    <div *ngIf="areEventsVisible">
+
+    <div class="row" *ngIf="events?.length">
         <div class="col-4 d-flex" *ngFor="let event of events">
             <!-- routerLink="/events/{{event.id}}" -->
-            <div class="card w-100 my-3" [routerLink]="[ 'events', event.id ]">
+            <div class="card w-100 my-3" [routerLink]="[ event.id ]">
                 <img class="card-img-top w-75 d-block mx-auto" [src]="event.imageUrl" alt=""> <!-- src="{{event.imageUrl}}" -->
                 <div class="card-body">
                     <h4 class="card-title">{{event.name}}</h4>
@@ -25,4 +50,7 @@
             </div>
         </div>
     </div>
+</div>
+
+<router-outlet></router-outlet>
 </div>

@@ -4,13 +4,23 @@ import { EventsListComponent } from './events-list/events-list.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { UtilsModule } from '../utils/utils.module';
 import { EventsRoutingModule } from './events-routing.module';
-import {EventsService} from './events.service';
-import {HttpClientModule} from '@angular/common/http'
+import { EventsService } from './events.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddSessionComponent } from './add-seesions/add-seesions.component';
+import { SessionsComponent } from './seesions/seesions.component';
+import { AddEventsComponent } from './add-events/add-events.component';
+import { AddSeesionsReactiveComponent } from './add-seesions-reactive/add-seesions-reactive.component'
+
 @NgModule(
     {
         declarations: [
             EventsListComponent,
-            EventDetailComponent
+            EventDetailComponent,
+            AddSessionComponent,
+            SessionsComponent,
+            AddEventsComponent,
+            AddSeesionsReactiveComponent
         ],
         providers: [
             EventsService
@@ -18,8 +28,10 @@ import {HttpClientModule} from '@angular/common/http'
         imports: [
             CommonModule,
             UtilsModule,
-            HttpClientModule,
-            EventsRoutingModule
+            HttpClientModule, /* export HttpClient service */
+            EventsRoutingModule,
+            FormsModule,
+            ReactiveFormsModule
         ],
         exports: [
             EventsListComponent,

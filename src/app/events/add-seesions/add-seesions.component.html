@@ -1,0 +1,97 @@
+<!--
+<div>Value : {{addSessionForm.value | json}}</div>
+<div>Dirty : {{addSessionForm.dirty}}</div>
+<div>Pristine : {{addSessionForm.pristine}}</div>
+<div>Valid : {{addSessionForm.valid}}</div>
+<div>Invalid : {{addSessionForm.invalid}}</div>
+<div>TOuched : {{addSessionForm.touched}}</div>
+<div>Untouched : {{addSessionForm.untouched}}</div>
+-->
+<!--
+    required
+    minlength="8"
+    maxlength="240"
+    pattern="/d+/" (a regex pattern)
+-->
+<h3>
+        Details of new session
+        <div class="float-right">
+            <button class="btn btn-danger" [routerLink]="[ '/events', session.eventId ]">Cancel</button>
+        </div>
+    </h3>
+    <form (ngSubmit)="addSession( $event, addSessionForm.value )" novalidate #addSessionForm="ngForm"> <!-- ngForm directive is automatically added by Angular -->
+        <div class="form-group row">
+            <label for="sequenceId" class="col-sm-3 col-form-label">Sequence ID</label>
+            <div class="col-sm-9">
+                <!-- 
+                    1. if ngModel is added, Angular creates a FormControl object that tracks the value and validation state of the input
+                    2. If we set a template reference variable, say #sequenceId, then it refers to DOM node
+                    3. We can also capture the exports of ngModel directive in the template reference variable
+                -->
+                <input type="number" class="form-control" name="sequenceId" id="sequenceId" placeholder=""
+                    [(ngModel)]="session.sequenceId" aria-describedby="sequenceHelpId" #sequenceId="ngModel" required>
+                <small id="sequenceHelpId" class="text-muted" *ngIf="sequenceId.untouched || sequenceId.valid">Sequence ID is the serial number of the session within the event (workshop)</small>
+                <small class="has-error" *ngIf="sequenceId.touched && sequenceId?.errors?.required">
+                    The sequence ID is mandatory
+                </small>
+                <!--
+                <div>Value : {{sequenceId.value}}</div>
+                <div>Dirty : {{sequenceId.dirty}}</div>
+                <div>Pristine : {{sequenceId.pristine}}</div>
+                <div>Valid : {{sequenceId.valid}}</div>
+                <div>Invalid : {{sequenceId.invalid}}</div>
+                <div>TOuched : {{sequenceId.touched}}</div>
+                <div>Untouched : {{sequenceId.untouched}}</div>
+                -->
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-3 col-form-label">Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="name" id="name" placeholder=""
+                    [(ngModel)]="session.name" aria-describedby="NameHelpId" required>
+                <small id="NameHelpId" class="text-muted">The title of the session</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="speaker" class="col-sm-3 col-form-label">Speaker(s)</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="speaker" id="speaker" placeholder=""
+                    [(ngModel)]="session.speaker" aria-describedby="speakerHelpId" required>
+                <small id="speakerHelpId" class="text-muted">The name of the speaker(s) for this session</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="duration" class="col-sm-3 col-form-label">Duration</label>
+            <div class="col-sm-9">
+                <input type="number" class="form-control" name="duration" id="duration" placeholder=""
+                    [(ngModel)]="session.duration" aria-describedby="durationHelpId">
+                <small id="durationHelpId" class="text-muted">The length of the session in hours</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="level" class="col-sm-3 col-form-label">Level</label>
+            <div class="col-sm-9">
+                <select class="form-control" name="level" id="level"
+                    [(ngModel)]="session.level" required>
+                    <option value="">-- Select the level of the session --</option>
+                    <option value="basic">Basic</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="duration" class="col-sm-3 col-form-label">Abstract</label>
+            <div class="col-sm-9">
+                <textarea type="number" class="form-control" name="abstract" id="abstract"
+                    [(ngModel)]="session.abstract" aria-describedby="abstractHelpId" minlength="20"></textarea>
+                <small id="abstractHelpId" class="text-muted">A brief description of the session topics</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+                <button type="submit" class="btn btn-primary" [disabled]="addSessionForm.invalid">Add session</button>
+            </div>
+        </div>
+    </form>

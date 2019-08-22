@@ -1,0 +1,29 @@
+.app-panel {
+    border: 1px solid green;
+}
+
+.app-panel-heading, .app-panel-footer {
+    background-color: green;
+    color: white;
+}
+
+.app-panel-heading, .app-panel-body {
+    padding: 10px;
+}
+
+.app-panel-body {
+    transition: height 350ms;
+}
+
+.app-panel-footer {
+    padding: 3px;
+    font-size: 0.65em;
+}
+
+.app-panel-open {
+    height: inherit;
+}
+
+.app-panel-closed {
+    height: 0;
+}

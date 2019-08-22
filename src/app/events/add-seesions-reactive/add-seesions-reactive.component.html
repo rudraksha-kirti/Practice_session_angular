@@ -1,0 +1,81 @@
+<h3>
+    Details of new session
+    <div class="float-right">
+        <button class="btn btn-danger" [routerLink]="[ '/events', session.get( 'eventId' ).value ]">Cancel</button>
+    </div>
+</h3>
+<form (ngSubmit)="addSession( $event )" [formGroup]="session" novalidate>
+    <div class="form-group row">
+        <label for="sequenceId" class="col-sm-3 col-form-label">Sequence ID</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" name="sequenceId" id="sequenceId" placeholder="" formControlName="sequenceId" aria-describedby="sequenceHelpId"
+                required>
+            <small id="sequenceHelpId" class="text-muted">Sequence ID is the serial number of the session within the event (workshop)</small>
+            <small class="has-error" *ngIf="session.get( 'sequenceId' ).invalid && ( session.get( 'sequenceId' ).dirty || session.get( 'sequenceId' ).touched )">
+                <div class="text-danger" *ngIf="session.get( 'sequenceId' )?.errors?.required">This is required</div>
+                <div class="text-warning" *ngIf="session.get( 'sequenceId' )?.errors?.pattern">Only numeric value allowed</div>
+            </small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="name" class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" name="name" id="name" placeholder="" formControlName="name" aria-describedby="NameHelpId"
+                required>
+            <small id="NameHelpId" class="text-muted">The title of the session</small>
+            <small class="has-error" *ngIf="session.get( 'name' ).invalid && ( session.get( 'name' ).dirty || session.get( 'name' ).touched )">
+                <div class="text-danger" *ngIf="session.get( 'name' )?.errors?.required">This is required</div>
+                <div class="text-warning" *ngIf="session.get( 'name' )?.errors?.pattern">Only alphabet allowed</div>
+            </small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="speaker" class="col-sm-3 col-form-label">Speaker(s)</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" name="speaker" id="speaker" placeholder="" formControlName="speaker" aria-describedby="speakerHelpId"
+                required>
+            <small id="speakerHelpId" class="text-muted">The name of the speaker(s) for this session</small>
+            <small class="has-error" *ngIf="session.get( 'speaker' ).invalid && ( session.get( 'speaker' ).dirty || session.get( 'speaker' ).touched )">
+                <div class="text-danger" *ngIf="session.get( 'speaker' )?.errors?.required">This is required</div>
+            </small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="duration" class="col-sm-3 col-form-label">Duration</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control" name="duration" id="duration" placeholder="" formControlName="duration" aria-describedby="durationHelpId">
+            <small id="durationHelpId" class="text-muted">The length of the session in hours</small>
+            <small class="has-error" *ngIf="session.get( 'duration' ).invalid && ( session.get( 'duration' ).dirty || session.get( 'duration' ).touched )">
+                <div class="text-danger" *ngIf="session.get( 'duration' )?.errors?.required">This is required</div>
+            </small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="level" class="col-sm-3 col-form-label">Level</label>
+        <div class="col-sm-9">
+            <select class="form-control" name="level" id="level" formControlName="level" required>
+                <option value="">-- Select the level of the session --</option>
+                <option value="basic">Basic</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="duration" class="col-sm-3 col-form-label">Abstract</label>
+        <div class="col-sm-9">
+            <textarea type="number" class="form-control" name="abstract" id="abstract" formControlName="abstract"
+             aria-describedby="abstractHelpId" minlength="20" required></textarea>
+            <small id="abstractHelpId" class="text-muted">A brief description of the session topics</small>
+            <small class="has-error" *ngIf="session.get( 'abstract' ).invalid && ( session.get( 'abstract' ).dirty || session.get( 'abstract' ).touched )">
+                <div class="text-danger" *ngIf="session.get( 'abstract' )?.errors?.required">This is required</div>
+                <div class="text-warning" *ngIf="session.get( 'abstract' )?.errors?.pattern">Minimun 20 characters is required</div>
+            </small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+            <button type="submit" class="btn btn-primary" [disabled]="session.invalid">Add session</button>
+        </div>
+    </div>
+</form>
