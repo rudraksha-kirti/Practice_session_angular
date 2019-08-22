@@ -1,0 +1,218 @@
+{
+    "events": [
+        {
+            "name": "Angular JS Bootcamp",
+            "id": 1,
+            "startDate": "1/1/2019",
+            "endDate": "3/1/2019",
+            "time": "9:30 am - 1:30 pm",
+            "duration": 3,
+            "location": {
+                "address": "Tata Elxsi, Prestige Shantiniketan",
+                "city": "Bangalore",
+                "state": "Karnataka"
+            },
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/2000px-AngularJS_logo.svg.png"
+        },
+        {
+            "name": "React JS Masterclass",
+            "id": 2,
+            "startDate": "14/1/2019",
+            "endDate": "16/1/2019",
+            "time": "10:00 am - 6:00 pm",
+            "duration": 2,
+            "location": {
+                "address": "Tata Elxsi, IT Park",
+                "city": "Trivandrum",
+                "state": "Kerala"
+            },
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/640px-React-icon.svg.png"
+        },
+        {
+            "name": "Crash course in Mongo DB",
+            "id": 3,
+            "startDate": "20/1/2019",
+            "endDate": "22/1/2019",
+            "time": "12:30 pm - 4:30 pm",
+            "duration": 3,
+            "location": {
+                "address": "HCL, Electronic City Phase 1",
+                "city": "Bangalore",
+                "state": "Karnataka"
+            },
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Mongo-db-logo.png"
+        }
+    ],
+    "sessions": [
+        {
+            "id": 1,
+            "eventId": 1,
+            "name": "Introduction to Angular JS",
+            "speaker": "John Doe",
+            "duration": 1,
+            "level": "Basic",
+            "abstract": "In this session you will learn about the basics of Angular JS",
+            "upvoteCount": 0
+        },
+        {
+            "id": 2,
+            "eventId": 1,
+            "name": "Scopes in Angular JS",
+            "speaker": "John Doe",
+            "duration": 0.5,
+            "level": "Basic",
+            "abstract": "This session will take a closer look at scopes.  Learn what they do, how they do it, and how to get them to do it for you.",
+            "upvoteCount": 0
+        },
+        {
+            "id": 3,
+            "eventId": 1,
+            "name": "Controllers",
+            "speaker": "Jane Doe",
+            "duration": 2,
+            "level": "Basic",
+            "abstract": "Controllers are the beginning of everything Angular does. They contain business logic used by your views",
+            "upvoteCount": 0
+        },
+        {
+            "id": 4,
+            "eventId": 1,
+            "name": "Services",
+            "speaker": "Jane Doe",
+            "duration": 3,
+            "level": "Intermediate",
+            "abstract": "Services implement the business logic that is used across an application. A common use case is to make backend calls",
+            "upvoteCount": 0
+        },
+        {
+            "id": 5,
+            "eventId": 1,
+            "name": "Directives",
+            "speaker": "Rob Smith",
+            "duration": 4,
+            "level": "Advanced",
+            "abstract": "Directives are ways to teach HTML new tricks. Directives are either custom HTML elements or attributes. They encapsulate markup and functionality, and help create reusable widgets that can be used in the app at many places.",
+            "upvoteCount": 0
+        },
+        {
+            "id": 6,
+            "eventId": 2,
+            "name": "Introduction to React JS",
+            "speaker": "Paul Smith",
+            "duration": 0.5,
+            "level": "Basic",
+            "abstract": "In this session you will learn about the basics of React JS",
+            "upvoteCount": 0
+        },
+        {
+            "id": 7,
+            "eventId": 2,
+            "name": "JSX",
+            "speaker": "Paul Smith",
+            "duration": 2,
+            "level": "Basic",
+            "abstract": "Learn how to use JSX to create view and bind data to it",
+            "upvoteCount": 0
+        },
+        {
+            "id": 8,
+            "eventId": 2,
+            "name": "Props and children",
+            "speaker": "Jane Doe",
+            "duration": 1,
+            "level": "Basic",
+            "abstract": "Use props and children to pass data",
+            "upvoteCount": 0
+        },
+        {
+            "id": 9,
+            "eventId": 2,
+            "name": "Components",
+            "speaker": "Jane Doe",
+            "duration": 3,
+            "level": "Basic",
+            "abstract": "Create custom stateful and stateless components. Compose components to create your application.",
+            "upvoteCount": 0
+        },
+        {
+            "id": 10,
+            "eventId": 2,
+            "name": "State and application lifecycle",
+            "speaker": "Rob Smith",
+            "duration": 2,
+            "level": "Intermediate",
+            "abstract": "Store application data in state and make your application respond to events",
+            "upvoteCount": 0
+        },
+        {
+            "id": 11,
+            "eventId": 2,
+            "name": "React router",
+            "speaker": "Rob Smith",
+            "duration": 2.5,
+            "level": "Advanced",
+            "abstract": "Add React router to build an SPA",
+            "upvoteCount": 0
+        },
+        {
+            "id": 12,
+            "eventId": 2,
+            "name": "State and application lifecycle",
+            "speaker": "Rob Smith",
+            "duration": 4,
+            "level": "Advanced",
+            "abstract": "Redux provides an architecture for state manipulation in your app. Add Redux to store the state of your app, and make your app respond to changes in state.",
+            "upvoteCount": 0
+        },
+        {
+            "id": 13,
+            "eventId": 3,
+            "name": "Introduction to NoSQL databases",
+            "speaker": "Ramcharan Gupta",
+            "duration": 0.5,
+            "level": "Basic",
+            "abstract": "What NoSQL is and how it is different from RDBMSes",
+            "upvoteCount": 0
+        },
+        {
+            "id": 14,
+            "eventId": 3,
+            "name": "Understanding Mongo DB",
+            "speaker": "Ramcharan Gupta",
+            "duration": 2,
+            "level": "Basic",
+            "abstract": "Mongo DB and its features shall be briefly introduced",
+            "upvoteCount": 0
+        },
+        {
+            "id": 15,
+            "eventId": 3,
+            "name": "Queries in Mongo DB",
+            "speaker": "John Doe",
+            "duration": 2,
+            "level": "Basic",
+            "abstract": "CRUD operations in Mongo DB",
+            "upvoteCount": 0
+        },
+        {
+            "id": 16,
+            "eventId": 3,
+            "name": "Designing Schemas for Mongo DB",
+            "speaker": "Jane Doe",
+            "duration": 2,
+            "level": "Intermediate",
+            "abstract": "Schema design for Mongo DB is quite different from that of traditional databases. Learn the art of designing Mongo DB database schemas for the application at hand",
+            "upvoteCount": 0
+        },
+        {
+            "id": 17,
+            "eventId": 3,
+            "name": "Aggregation pipeline",
+            "speaker": "Rob Smith",
+            "duration": 3,
+            "level": "Advanced",
+            "abstract": "Learn how to use the aggregation pipelines to generate reports",
+            "upvoteCount": 0
+        }
+    ]
+}
